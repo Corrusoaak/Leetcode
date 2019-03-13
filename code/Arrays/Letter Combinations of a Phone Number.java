@@ -25,7 +25,7 @@ class Solution {
     		return;
     	}
     	String next_digits=digits.substring(1);
-    	String letters=num2letter.get(digits.substring(0,1));	// 替代了digits.charAt()
+    	String letters=num2letter.get(digits.substring(0,1));	// 替代了digits.charAt
     	for(int i=0;i<letters.length();i++){
     		backtrack(solution+letters.substring(i,i+1),next_digits);
     	}
