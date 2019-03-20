@@ -29,6 +29,7 @@ class Solution {
         if(a<length && nums[a]==target){
             res[1]=a;
         }
+        
         return res;
     }
 }
