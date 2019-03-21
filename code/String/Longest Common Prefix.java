@@ -41,7 +41,7 @@ class Solution{
 		}
 		int mid=(begin+end)/2;
 		String left=divideAndConquer(strs,begin,mid);
-		String right=divideAndConquer(strs,mid,end);
+		String right=divideAndConquer(strs,mid+1,end);	// 需要特别注意
 		return commonPrefix(left,right);
 	}
 	private String commonPrefix(String left,String right){
