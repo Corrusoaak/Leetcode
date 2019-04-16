@@ -79,3 +79,34 @@ class Solution{
 }
 ~~~
 
+
+
+## 5、题目
+
+## [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix) -- Divide and Conquer
+
+### 思路
+
+- Vertical Scanning or Horizontal Scanning： 先遍历字符串，还是先遍历每个字符的区别，只需使用索引记录最终位置即可
+- Divide and Conquer：每次将其分成两串，分别计算最大prefix，之后再combine
+
+### 复杂度
+
+- Vertical Scanning or Horizontal Scanning：Time O(SL) Space: O(1)
+- Divide and Conquer：Time O(SL) Space:O(L*log(S))
+
+
+
+## [Maximum Subarray](https://leetcode.com/problems/maximum-subarray) -- DP，Divide and Conquer
+
+### 思路
+
+- Divide and Conquer: 计算左右子列的最大值，结合时要比较涵盖了中间节点的子列
+
+### 复杂度
+
+- Divide and Conquer: Time O(NlogN) since T(N)=2*T(N/2)+N  Space: O(logN)
+
+### 注意
+
+计算以i开头的序列的最大值时，要把初始max设置为nums[i]而不是0

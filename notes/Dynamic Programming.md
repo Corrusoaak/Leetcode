@@ -1,18 +1,25 @@
-# 2019.03.13(重点归纳)
+# Dynamic Programming
+
+# 1、思路
+
+# 2、标准代码范例
+
+## 3、题目
+
+## [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) -- Dynamic Programming
+
+### 思路
+
+每次固定一个中心点，针对这个中心点去思考palindromic怎么增大，也是设置两个begin, end的index，P(i-1,j+1)=P(i,j) only if char(i-1)==char(j+1)
+
+### 注意
+
+- 有两种类型的中心点，比如aba和abba。要同时计算这两种类型的中心点的palindrome的长度。
+- 通过计算得到的max_length来更新全局的begin和end时，不需要使用center+Math.ceil((len-1)/2)这种方法，如果center靠左就是begin=center-(length-1)/2, end=center+length/2。这种计算方法在解决Binary Search的时候也是一样的。如果必须要使用Math.ceil函数的话，一定要记得强制类型转换。
+
+
 
 ## [Jump Game](https://leetcode.com/problems/jump-game) -- Backtracking, DP Top-down, DP Bottom-up, Greedy
-
-### Backtracking
-
-正常的往前跳，在回溯函数中记录现有的位置，遍历所有能跳的路径，如果跳到了终点则返回true
-
-### 复杂度分析
-
-- **回溯算法的时间复杂度即为能够遍历的所有路径的数量**，在这道题中每个位置都可以选择去还是不去，所以是O(2^n)
-
-- **回溯算法的空间复杂度和迭代的次数有关，即最长路径的长度**，在此题中最长路径就是每个位置都走，为O(n)
-
-
 
 ### DP Top-down和DP Bottom-up
 
@@ -33,22 +40,22 @@ can_jump[pos]=can_jump[pos+1] || can_jump[pos+2] ||... || can_jump[max_pos]
 ### 复杂度分析
 
 - Top-down时间复杂度：因为是查memo来看了，总共n个位置，最远的位置要查后n-1个位置的值，所以是O(n^2)
-
 - Top-down空间复杂度：即迭代最大次数和memo的和，O(n+n)=O(n)
-
 - Bottom-up时间复杂度：同Top-Down
 - Bottom-up空间复杂度：memo的值O(n)
 
 
 
-### Greedy
+## [Maximum Subarray](https://leetcode.com/problems/maximum-subarray) -- DP，Divide and Conquer
 
-每次往前找，找到了局部最前面的满足条件的点就更新一次pos，看能不能更新到起点。
+### 思路
 
+DP: dp(i)为以索引i为结尾的子列的最大值，则dp(i)=max(dp(i-1),0)+ nums[i]
 
+### 复杂度
 
-### 复杂度分析
+DP: Time O(N) Space O(1)
 
-- 时间复杂度：one-pass所以为O(n)
-- 空间复杂度：O(1)
+### 注意
 
+计算以i开头的序列的最大值时，要把初始max设置为nums[i]而不是0

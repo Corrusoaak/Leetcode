@@ -51,3 +51,47 @@
 ### Notes:
 
 使用栈的方法时，要注意while条件是栈不为空且当前结点不为null，而且**一开始要判断当前结点是否为null，是null就要pop出一个新的结点(这是写树，链表等高级结构时都要先判断的条件！！！！)**
+
+
+
+
+
+## [Symmetric Tree](https://leetcode.com/problems/symmetric-tree)  
+
+## 思路
+
+- Recursion: 判断两个对称的节点是否相等，如果相等则判断左节点的右子树和右结点的左子树是否相等，以及左节点的左子树和右结点的右子树是否相等
+- Iterative：同样的检测方法，可以建立stack，每次存两个相邻的节点，然后每次也推出两个节点比较大小
+
+
+
+## [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal) -- BFS, Level Order Traversal
+
+## 思路
+
+- Recursion：递归函数中设置一个level，如果没有就加一个空的list，然后在这一层的res上添加该节点的值，最后再递归其左节点和右结点（保证每层左节点一定在右结点前面）
+- Iteration：每一层迭代时，设置一个队列（先进先出），把迭代的该节点的左子树和右子树存入队列，然后再进行下一层迭代（每层迭代前，都计算一下该层的节点数量）
+
+## 
+
+## [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal)  -- Level Order Traversal
+
+## 思路：仍然是层次遍历，只是加了一个反向层次遍历
+
+- Recursion：递归里面多加一个boolean参数，是从左向右递归还是从右向左，level%2==0 or 1 的时候判断是否打印
+- Iteration：设置两个队列，判断一下打印打哪一个即可
+
+
+
+## [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal) 
+
+## 思路
+
+对于中序遍历的结果，只要每一次找到根节点，然后左右分别就是左子树和右子树，然后再查找前序遍历中的左子树和右子树位置，建立下一层递归（通过设置左右子树的前后索引）
+
+## 注意
+
+判断该节点是否为null的情况，是通过看左索引是否大于右索引
+
+
+

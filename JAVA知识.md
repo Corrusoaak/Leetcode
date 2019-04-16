@@ -31,8 +31,6 @@
 
   
 
-  
-
 ## 数组
 
 - 数组创建时如果未直接初始化，需要分配内存；二维数组也是一样，每一维都需要
@@ -77,4 +75,42 @@
 - 有HashMap（推荐，增删快）和TreeMap（按照键顺序输出，可以先建立Hashmap，要顺序输出时再创建TreeMap： treemap.putAll(hashmap)）
 
 
+
+## Queue
+
+- 初始化：使用LinkedList
+
+~~~java
+	Queue<Integer> queue=new LinkedList<>();
+~~~
+
+- offer()插入， poll()弹出空时返回null，peek()查看空时返回null
+
+
+
+## Stack
+
+- 初始化：
+
+  ~~~java
+  Stack<Integer> stack=new Stack<>();
+  ~~~
+
+- pop() push()
+
+
+
+## 注意
+
+- 只有这种Integer这类的可以为空，但为空时不能直接比，要判断是否为空
+
+- 对于两个变量判断是否为空，可以用如下的方法
+
+~~~java
+    if (t1 == null && t2 == null) return true;
+    if (t1 == null || t2 == null) return false;
+    return (t1.val == t2.val)
+        && isMirror(t1.right, t2.left)
+        && isMirror(t1.left, t2.right);
+~~~
 

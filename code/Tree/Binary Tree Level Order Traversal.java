@@ -7,6 +7,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+// Iterative
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root==null)return new ArrayList<>();
@@ -25,5 +26,20 @@ class Solution {
             res.add(list);
         }
         return res;
+    }
+}
+// Recursive
+class Solution {
+    List<List<Integer>> res=new ArrayList<>();
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        levelorder(root,0);
+        return res;
+    }
+    private void levelorder(TreeNode node,int level){
+        if(node==null)return;
+        if(level>=res.size())res.add(new ArrayList<Integer>());
+        res.get(level).add(node.val);
+        levelorder(node.left,level+1);
+        levelorder(node.right,level+1);
     }
 }
