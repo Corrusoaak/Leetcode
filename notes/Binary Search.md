@@ -69,3 +69,13 @@ Notes：在实际写代码的时候，由于c=(a+b)/2，会偏左边一点，所
 
 ### [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)  
 
+
+
+## [Find Peak Element](https://leetcode.com/problems/find-peak-element) -- Binary Search
+
+### 思路
+
+如果mid元素处在增长阶段（即nums[mid]<nums[mid+1]），则峰值在mid元素之后（即更新b=c），反之更新a=c+1
+
+
+

@@ -137,3 +137,13 @@ Time complexity: 因为最多可能会每个地方都能分割，所以worst cas
 
 Space complexity: 一次性最多递归N次（因为String只有这么长），所以是O(N)
 
+
+
+## [Number of Islands](https://leetcode.com/problems/number-of-islands) -- DFS，BFS
+
+### 思路
+
+和Surrounded regions很像，但是更简单的题，因为不用判断islands是否是surrounded，只要计数即可，所以也不用标记“$”
+
+
+

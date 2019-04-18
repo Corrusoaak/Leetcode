@@ -48,3 +48,12 @@
 
 
 
+## [Largest Number](https://leetcode.com/problems/largest-number)  -- String
+
+### 思路
+
+即重构比较符Comparator，可以通过将按照ab和ba的顺序转化成integer再进行比较。之后写一个sort即可
+
+### 注意
+
+注意如果所有String都是0的特殊情况，此时返回0
