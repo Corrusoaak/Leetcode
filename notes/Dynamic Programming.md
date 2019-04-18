@@ -4,6 +4,69 @@
 
 # 2、标准代码范例
 
+- Top-down
+
+```java
+enum Index{
+    GOOD,BAD,UNKNOWN
+};
+Index[] memo=new Index[s.length()];
+
+boolean solution(){
+//初始化memo
+    for(int i=0;i<memo.length;i++){
+        memo[i]=Index.UNKNOWN;
+    }
+    memo[0]=Index.GOOD;
+
+    // 递归开始
+    dpTopDown(s,s.length());    
+}
+
+boolean dpTopDown(String s, int index){
+    //查询memo table
+    if(memo[index]!=Index.UNKNOWN)return memo[index]==Index.GOOD?true:false;
+    
+    //可能的边界条件，但应该没有，因为初始化了memo[0]
+    //...
+    
+    //进行递归，并更新memo[Index]
+    int new_index;
+    if(dpTopDown(s,new_index)){
+        memo[index]=Index.GOOD;
+        return true;
+    }else{
+        memo[index]=Index.BAD;
+        return false;
+    }
+} 
+
+```
+
+- Bottom-Up：因为计算大的值之前，小的值已经都计算好了，所以不用写Unknown
+
+```java
+
+
+boolean solution(){
+    
+    //初始化memo，和边界值
+    boolean[] memo=new boolean[s.length()];
+	memo[0]=true;
+    
+    for(int i=0;i<s.length();i++){
+    	//更新memo
+        memo[i]=true or false;
+    }
+}
+```
+
+
+
+
+
+
+
 ## 3、题目
 
 ## [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) -- Dynamic Programming
@@ -59,3 +122,39 @@ DP: Time O(N) Space O(1)
 ### 注意
 
 计算以i开头的序列的最大值时，要把初始max设置为nums[i]而不是0
+
+
+
+## [Word Break](https://leetcode.com/problems/word-break) -- DP
+
+### 思路
+
+这道题和Jump Game的写法几乎一模一样，memo[i]表示的是string的[0,i)范围的子串是否是wordBreak
+
+### 复杂度
+
+Time complexity: O(N^2)，扫描memo O(N)* 每次要查询前面n-1个memo的值O(N)
+
+Space complexity: O(N),memo表
+
+
+
+## [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray)  -- DP
+
+### 思路
+
+maximum subarray的变式，同样是将dp[i]作为以i结尾的最大product，但是更新dp[i]的时候要注意，要同时维护绝对值最大的正数和负数值，同时更新这3个值
+
+### 注意
+
+实际操作中可能没有正值或负值，只要将原来的两个数和nums[i]比较取最大和最小的即可
+
+~~~java
+last1*=nums[i];
+last2*=nums[i];
+int tmp1=Math.max(Math.max(last1,last2),nums[i]);
+int tmp2=Math.min(Math.min(last1,last2),nums[i]);
+last1=tmp1;
+last2=tmp2;
+~~~
+

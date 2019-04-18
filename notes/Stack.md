@@ -16,3 +16,10 @@
 
 stack我们可以用List来写，get和pop用list.remove(list.size()-1)
 
+
+
+## [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation) -- Stack
+
+### 思路
+
+很简单，注意除0即可

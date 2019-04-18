@@ -110,3 +110,16 @@ class Solution{
 ### 注意
 
 计算以i开头的序列的最大值时，要把初始max设置为nums[i]而不是0
+
+
+
+## [Sort List](https://leetcode.com/problems/sort-list)  -- Divide and Conquer
+
+### 思路
+
+就是最简单的归并排序，Divide的时候需要注意把左边的链表的最后一个node.next=null
+
+### 复杂度
+
+同maximum subarray, T(N)=2T(N/2)+N
+
